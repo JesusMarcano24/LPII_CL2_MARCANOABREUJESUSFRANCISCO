@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*"%>
-<%@page import="model.TblProductocl2"%>
+<%@page import="model.TblUsuariocl2"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Listado de Productos</title>
+<title>Listado de Usuarios</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -18,7 +18,7 @@
         color: #4CAF50;
         text-align: center;
     }
-    .register-button {
+    .menu-button {
         display: inline-block;
         background-color: #4CAF50;
         color: white;
@@ -33,7 +33,7 @@
         display: block;
         width: fit-content;
     }
-    .register-button:hover {
+    .menu-button:hover {
         background-color: #45a049;
         transform: scale(1.05);
     }
@@ -59,36 +59,30 @@
 </style>
 </head>
 <body>
-<h1>Listado de Productos registrados en la BD</h1>
+<h1>Listado de Usuarios registrados en la BD</h1>
 
 <h2>
-    <a class="register-button" href="FormRegistrarProducto.jsp">Registrar Producto</a>
+    <a class="menu-button" href="Menu.jsp">Volver al Menú</a>
 </h2>
 
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio de Compra</th>
-            <th>Precio de Venta</th>
-            <th>Estado</th>
+            <th>Usuario</th>
+            <th>Contraseña</th>
         </tr>
     </thead>
     <tbody>
         <% 
-        List<TblProductocl2> listadoProductos = (List<TblProductocl2>)request.getAttribute("listadoProductos");
-        if (listadoProductos != null) {
-            for (TblProductocl2 lis : listadoProductos) {
+        List<TblUsuariocl2> listadoUsuarios = (List<TblUsuariocl2>)request.getAttribute("listadoUsuarios");
+        if (listadoUsuarios != null) {
+            for (TblUsuariocl2 lis : listadoUsuarios) {
         %>
         <tr>
-            <td><%=lis.getIdproductocl2()%></td>
-            <td><%=lis.getNombrecl2()%></td>
-            <td><%=lis.getDescripcl2()%></td>
-            <td><%=lis.getPreciocompcl2()%></td>
-            <td><%=lis.getPrecioventacl2()%></td>
-            <td><%=lis.getEstadocl2()%></td>
+            <td><%=lis.getIdusuariocl2()%></td>
+            <td><%=lis.getUsuariocl2()%></td>
+            <td><%=lis.getPasswordcl2()%></td>
         </tr>	
         <%	
             }

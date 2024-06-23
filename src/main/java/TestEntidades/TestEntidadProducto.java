@@ -12,14 +12,14 @@ public class TestEntidadProducto {
 		ClassProductoImp crud= new ClassProductoImp();
 		
 		//asignamos valores
-		//producto.setNombrecl2("Teclado");
-		//producto.setDescripcl2("Un teclado hermoso");
-		//producto.setEstadocl2("Como nuevo");
-		//producto.setPreciocompcl2(15);
-		//producto.setPrecioventacl2(20);
+		/*producto.setNombrecl2("vsadsdsdfsdfsdf");
+		producto.setDescripcl2("example");
+		producto.setEstadocl2("Muy nuevo");
+		producto.setPreciocompcl2(1585);
+		producto.setPrecioventacl2(5000);
 		
 		//invocamos el metodo registrar
-		//crud.RegistrarProducto(producto);
+		crud.RegistrarProducto(producto);*/
 		
 		List<TblProductocl2> listado=crud.ListadoProducto();
 		for(TblProductocl2 list:listado){

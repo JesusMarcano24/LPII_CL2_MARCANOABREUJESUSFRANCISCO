@@ -32,7 +32,7 @@ public class ControladorProducto extends HttpServlet {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		//Instanciamos
-		TblProductocl2 cliente = new TblProductocl2();
+		TblProductocl2 producto = new TblProductocl2();
 		ClassProductoImp crud = new ClassProductoImp();
 		List<TblProductocl2> listadoProducto= crud.ListadoProducto();
 		
@@ -67,6 +67,11 @@ public class ControladorProducto extends HttpServlet {
 		producto.setPrecioventacl2(precioVenta);
 		//Invocamos el metodo registrar
 		crud.RegistrarProducto(producto);
+		//Actualizamos el listado
+		List<TblProductocl2> listadoProducto= crud.ListadoProducto();
+		
+		//Hacemos el listado de productos
+		request.setAttribute("listadoProductos", listadoProducto);
 		//Redireccionamos al usuario al listado
 		request.getRequestDispatcher("/ListadoProductos.jsp").forward(request, response);
 	}
