@@ -24,8 +24,15 @@ public class ClassProductoImp implements IProducto {
 
 	@Override
 	public List<TblProductocl2> ListadoProducto() {
-		// TODO Auto-generated method stub
-		return null;
+		//Gestionamos la entidad
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL2_MARCANOABREUJESUSFRANCISCO");
+		EntityManager em=fabr.createEntityManager();
+		em.getTransaction().begin();
+		//Recuperamos los datos
+		List<TblProductocl2> listadoProductos=em.createQuery("select p from TblProductocl2 p", TblProductocl2.class).getResultList();
+		em.getTransaction().commit();
+		em.close();
+		return listadoProductos;
 	}
 
 }

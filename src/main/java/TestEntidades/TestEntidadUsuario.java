@@ -1,5 +1,7 @@
 package TestEntidades;
 
+import java.util.List;
+
 import Dao.ClassUsuarioImp;
 import model.TblUsuariocl2;
 
@@ -10,11 +12,17 @@ public class TestEntidadUsuario {
 		ClassUsuarioImp crud= new ClassUsuarioImp();
 		
 		//asignamos valores
-		usuario.setUsuariocl2("Juanito");
-		usuario.setPasswordcl2("123456");
+		/*usuario.setUsuariocl2("Juanito");
+		usuario.setPasswordcl2("123456");*/
 		
 		//invocamos el metodo registrar
-		crud.RegistrarUsuario(usuario);
+		/*crud.RegistrarUsuario(usuario);*/
+		
+		List<TblUsuariocl2> listado=crud.ListadoUsuario();
+		for(TblUsuariocl2 list:listado){
+			System.out.println("nombre " + list.getUsuariocl2() + " password " + list.getPasswordcl2());
+		}
 	}
-
+	
+	
 }

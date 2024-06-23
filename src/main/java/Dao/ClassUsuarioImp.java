@@ -24,8 +24,15 @@ public class ClassUsuarioImp implements IUsuario {
 
 	@Override
 	public List<TblUsuariocl2> ListadoUsuario() {
-		// TODO Auto-generated method stub
-		return null;
+		//Gestionamos la entidad
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL2_MARCANOABREUJESUSFRANCISCO");
+		EntityManager em=fabr.createEntityManager();
+		em.getTransaction().begin();
+		//Recuperamos los datos
+		List<TblUsuariocl2> listadoUsuarios=em.createQuery("select u from TblUsuariocl2 u", TblUsuariocl2.class).getResultList();
+		em.getTransaction().commit();
+		em.close();
+		return listadoUsuarios;
 	}
 
 }
